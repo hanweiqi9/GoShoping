@@ -1,0 +1,51 @@
+{
+	datas = (
+		{
+			activityId = "011dd82c078741e7be9e8dfd5be161cd";
+			description = "\U7070\U59d1\U5a18\U9006\U88ad\U6210\U529f";
+			fuliId = "http://api.gjla.com/webapp/subject.html?detailType=subject&detailId=23f9d4b81e7a490cb5d2e47f9450995b";
+			linkUrl = "http://api.gjla.com/webapp/subject.html?detailType=subject&detailId=23f9d4b81e7a490cb5d2e47f9450995b";
+			mainPicUrl = "uploadtemp/onlineactivity/2016-01/onlineactivity_4e785175fc1b4daa804db7835a15af82.jpg";
+			title = "\U7070\U59d1\U5a18\U9006\U88ad\U6210\U529f";
+			type = 0;
+		},
+		{
+			activityId = "6d115155109449809ea1da1a55619eb7";
+			description = "\U7533\U98869-\U7c89\U7ea2\U8272IPHONE6S";
+			fuliId = "http://api.gjla.com/activity/apply/index9.html?update=1";
+			linkUrl = "http://api.gjla.com/activity/apply/index9.html?update=1";
+			mainPicUrl = "uploadtemp/onlineactivity/2016-03/onlineactivity_ccbd9defebf544aeb46d246e9eed77af.jpg";
+			title = "\U7533\U98869-\U7c89\U7ea2\U8272IPHONE6S";
+			type = 0;
+		},
+		{
+			activityId = "b17feba30f744a62afde92df27e23f3c";
+			description = "CRZ 80\U5143\U73b0\U91d1\U5238";
+			fuliId = "http://api.gjla.com/webapp/brandcoupon.html?cid=d47103203b5a9a901042f447739dbe73&ctype=1";
+			linkUrl = "http://api.gjla.com/webapp/brandcoupon.html?cid=d47103203b5a9a901042f447739dbe73&ctype=1";
+			mainPicUrl = "uploadtemp/onlineactivity/2016-03/onlineactivity_4ff5e5d0ca4845faa8d8dd7bd6029a8d.jpg";
+			title = "CRZ 80\U5143\U73b0\U91d1\U5238";
+			type = 0;
+		},
+		{
+			activityId = "0eeca486484c405898ce4b6beef09b26";
+			description = "betu\U65b0\U54c1\U6298\U4e0a9\U6298\U5238";
+			fuliId = "http://api.gjla.com/webapp/brandcoupon.html?cid=0c03afc32db74a1e9921a5aff53b4723&ctype=2";
+			linkUrl = "http://api.gjla.com/webapp/brandcoupon.html?cid=0c03afc32db74a1e9921a5aff53b4723&ctype=2";
+			mainPicUrl = "uploadtemp/onlineactivity/2016-03/onlineactivity_bbea909ddc8f430b8adc448bafaff767.jpg";
+			title = "betu\U65b0\U54c1\U6298\U4e0a9\U6298\U5238";
+			type = 0;
+		},
+		{
+			activityId = "c7b58b8e26e84e62a2675aa65ef141fa";
+			description = "Ingrid Millet-\U82f1\U683c\U871c\U513f";
+			fuliId = "http://api.gjla.com/webapp/brandcoupon.html?cid=c8a69d5443dd8c0e3cbe7f9924c3dd20&ctype=2";
+			linkUrl = "http://api.gjla.com/webapp/brandcoupon.html?cid=c8a69d5443dd8c0e3cbe7f9924c3dd20&ctype=2";
+			mainPicUrl = "uploadtemp/onlineactivity/2016-03/onlineactivity_452459ed32f64f38a6f97c348e61fc3a.jpg";
+			title = "Ingrid Millet-\U82f1\U683c\U871c\U513f";
+			type = 0;
+		},
+	);
+	errcode = 0;
+	errmsg = "";
+}
