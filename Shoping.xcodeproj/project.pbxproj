@@ -32,6 +32,8 @@
 		7A5BB1741C992F3A002F8EBF /* VOSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BB1701C992F3A002F8EBF /* VOSegmentedControl.m */; };
 		7A5BB1761C99308A002F8EBF /* Main.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BB1751C99308A002F8EBF /* Main.plist */; };
 		7A5BB1781C993A30002F8EBF /* Hot1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BB1771C993A30002F8EBF /* Hot1.plist */; };
+		7A895F5A1C99790900668E97 /* ShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A895F591C99790900668E97 /* ShopDetailViewController.m */; };
+		7A895F5C1C997A2300668E97 /* ShopDetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A895F5B1C997A2300668E97 /* ShopDetail.plist */; };
 		7AB02ED31C9945530066D311 /* ShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB02ED21C9945530066D311 /* ShopModel.m */; };
 		7AB02ED71C9945680066D311 /* ShopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB02ED51C9945680066D311 /* ShopTableViewCell.m */; };
 		7AB02ED81C9945680066D311 /* ShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB02ED61C9945680066D311 /* ShopTableViewCell.xib */; };
@@ -84,6 +86,9 @@
 		7A5BB1701C992F3A002F8EBF /* VOSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSegmentedControl.m; sourceTree = "<group>"; };
 		7A5BB1751C99308A002F8EBF /* Main.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Main.plist; sourceTree = "<group>"; };
 		7A5BB1771C993A30002F8EBF /* Hot1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Hot1.plist; sourceTree = "<group>"; };
+		7A895F581C99790900668E97 /* ShopDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopDetailViewController.h; sourceTree = "<group>"; };
+		7A895F591C99790900668E97 /* ShopDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopDetailViewController.m; sourceTree = "<group>"; };
+		7A895F5B1C997A2300668E97 /* ShopDetail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShopDetail.plist; sourceTree = "<group>"; };
 		7AB02ED11C9945530066D311 /* ShopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopModel.h; sourceTree = "<group>"; };
 		7AB02ED21C9945530066D311 /* ShopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopModel.m; sourceTree = "<group>"; };
 		7AB02ED41C9945680066D311 /* ShopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTableViewCell.h; sourceTree = "<group>"; };
@@ -320,6 +325,9 @@
 			children = (
 				7A5BB1531C992E41002F8EBF /* NearbyViewController.h */,
 				7A5BB1541C992E41002F8EBF /* NearbyViewController.m */,
+				7A895F581C99790900668E97 /* ShopDetailViewController.h */,
+				7A895F591C99790900668E97 /* ShopDetailViewController.m */,
+				7A895F5B1C997A2300668E97 /* ShopDetail.plist */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -455,6 +463,7 @@
 				7A5BB15D1C992E41002F8EBF /* HotTableViewCell.xib in Resources */,
 				7A5BB1641C992E41002F8EBF /* Nearby.storyboard in Resources */,
 				7A5BB1281C992864002F8EBF /* LaunchScreen.storyboard in Resources */,
+				7A895F5C1C997A2300668E97 /* ShopDetail.plist in Resources */,
 				7A5BB15A1C992E41002F8EBF /* Discover.storyboard in Resources */,
 				7A5BB1781C993A30002F8EBF /* Hot1.plist in Resources */,
 				7A5BB1761C99308A002F8EBF /* Main.plist in Resources */,
@@ -524,6 +533,7 @@
 			files = (
 				7A5BB1601C992E41002F8EBF /* ViewController.m in Sources */,
 				7AB02EE01C9945BC0066D311 /* PullingRefreshTableView.m in Sources */,
+				7A895F5A1C99790900668E97 /* ShopDetailViewController.m in Sources */,
 				7A5BB15C1C992E41002F8EBF /* HotTableViewCell.m in Sources */,
 				7A5BB1731C992F3A002F8EBF /* VOSegment.m in Sources */,
 				7A5BB1741C992F3A002F8EBF /* VOSegmentedControl.m in Sources */,
@@ -649,7 +659,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/scjy/Desktop/OC语言学习/Shopping/Shoping/Tools/Prefix.pch";
+				GCC_PREFIX_HEADER = /Users/scjy/Desktop/GoShoping/Shoping/Tools/Prefix.pch;
 				INFOPLIST_FILE = Shoping/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -664,7 +674,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/scjy/Desktop/OC语言学习/Shopping/Shoping/Tools/Prefix.pch";
+				GCC_PREFIX_HEADER = /Users/scjy/Desktop/GoShoping/Shoping/Tools/Prefix.pch;
 				INFOPLIST_FILE = Shoping/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
