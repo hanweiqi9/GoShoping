@@ -32,6 +32,9 @@
 		7A5BB1741C992F3A002F8EBF /* VOSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BB1701C992F3A002F8EBF /* VOSegmentedControl.m */; };
 		7A5BB1761C99308A002F8EBF /* Main.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BB1751C99308A002F8EBF /* Main.plist */; };
 		7A5BB1781C993A30002F8EBF /* Hot1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BB1771C993A30002F8EBF /* Hot1.plist */; };
+		7A5BB1841C9988CD002F8EBF /* MatchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BB1821C9988CD002F8EBF /* MatchTableViewCell.m */; };
+		7A5BB1851C9988CD002F8EBF /* MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BB1831C9988CD002F8EBF /* MatchTableViewCell.xib */; };
+		7A5BB1881C998EE3002F8EBF /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BB1871C998EE3002F8EBF /* ActivityViewController.m */; };
 		7A895F5A1C99790900668E97 /* ShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A895F591C99790900668E97 /* ShopDetailViewController.m */; };
 		7A895F5C1C997A2300668E97 /* ShopDetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A895F5B1C997A2300668E97 /* ShopDetail.plist */; };
 		7AB02ED31C9945530066D311 /* ShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB02ED21C9945530066D311 /* ShopModel.m */; };
@@ -86,6 +89,11 @@
 		7A5BB1701C992F3A002F8EBF /* VOSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSegmentedControl.m; sourceTree = "<group>"; };
 		7A5BB1751C99308A002F8EBF /* Main.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Main.plist; sourceTree = "<group>"; };
 		7A5BB1771C993A30002F8EBF /* Hot1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Hot1.plist; sourceTree = "<group>"; };
+		7A5BB1811C9988CD002F8EBF /* MatchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchTableViewCell.h; sourceTree = "<group>"; };
+		7A5BB1821C9988CD002F8EBF /* MatchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchTableViewCell.m; sourceTree = "<group>"; };
+		7A5BB1831C9988CD002F8EBF /* MatchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchTableViewCell.xib; sourceTree = "<group>"; };
+		7A5BB1861C998EE3002F8EBF /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		7A5BB1871C998EE3002F8EBF /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		7A895F581C99790900668E97 /* ShopDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopDetailViewController.h; sourceTree = "<group>"; };
 		7A895F591C99790900668E97 /* ShopDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopDetailViewController.m; sourceTree = "<group>"; };
 		7A895F5B1C997A2300668E97 /* ShopDetail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShopDetail.plist; sourceTree = "<group>"; };
@@ -183,6 +191,8 @@
 				7A5BB1331C992E41002F8EBF /* DiscoverViewController.m */,
 				7A5BB1341C992E41002F8EBF /* MatchViewController.h */,
 				7A5BB1351C992E41002F8EBF /* MatchViewController.m */,
+				7A5BB1861C998EE3002F8EBF /* ActivityViewController.h */,
+				7A5BB1871C998EE3002F8EBF /* ActivityViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +207,9 @@
 		7A5BB1371C992E41002F8EBF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A5BB1811C9988CD002F8EBF /* MatchTableViewCell.h */,
+				7A5BB1821C9988CD002F8EBF /* MatchTableViewCell.m */,
+				7A5BB1831C9988CD002F8EBF /* MatchTableViewCell.xib */,
 				7A5BB1381C992E41002F8EBF /* Discover.storyboard */,
 				7A5BB1391C992E41002F8EBF /* Hot.plist */,
 				7A5BB13A1C992E41002F8EBF /* HotTableViewCell.h */,
@@ -465,6 +478,7 @@
 				7A5BB1281C992864002F8EBF /* LaunchScreen.storyboard in Resources */,
 				7A895F5C1C997A2300668E97 /* ShopDetail.plist in Resources */,
 				7A5BB15A1C992E41002F8EBF /* Discover.storyboard in Resources */,
+				7A5BB1851C9988CD002F8EBF /* MatchTableViewCell.xib in Resources */,
 				7A5BB1781C993A30002F8EBF /* Hot1.plist in Resources */,
 				7A5BB1761C99308A002F8EBF /* Main.plist in Resources */,
 				7A5BB15F1C992E41002F8EBF /* GlobalShop.storyboard in Resources */,
@@ -542,11 +556,13 @@
 				7A5BB1591C992E41002F8EBF /* MatchViewController.m in Sources */,
 				7A5BB1721C992F3A002F8EBF /* VOIndicatorAnimation.m in Sources */,
 				7AB02ED31C9945530066D311 /* ShopModel.m in Sources */,
+				7A5BB1841C9988CD002F8EBF /* MatchTableViewCell.m in Sources */,
 				7A5BB11D1C992864002F8EBF /* AppDelegate.m in Sources */,
 				7A5BB1581C992E41002F8EBF /* DiscoverViewController.m in Sources */,
 				7A5BB11A1C992864002F8EBF /* main.m in Sources */,
 				7A5BB1631C992E41002F8EBF /* NearbyViewController.m in Sources */,
 				7A5BB15E1C992E41002F8EBF /* CenterViewController.m in Sources */,
+				7A5BB1881C998EE3002F8EBF /* ActivityViewController.m in Sources */,
 				7A5BB1611C992E41002F8EBF /* MineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
