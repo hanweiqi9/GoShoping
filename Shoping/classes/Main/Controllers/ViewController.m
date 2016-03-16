@@ -91,6 +91,76 @@
     }
     [self.HeadView addSubview:self.scrollView];
     [self.HeadView addSubview:self.pageC];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    [button setBackgroundImage:[UIImage imageNamed:@"main_search_bg.9"] forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor cyanColor];
+    button.frame = CGRectMake(15, kHeight /3 + 5, kWidth - 30, 30);
+    [self.HeadView addSubview:button];
+    
+    UIButton *leftbutton = [UIButton buttonWithType:UIButtonTypeSystem];
+    leftbutton.frame = CGRectMake(0, kHeight/3+ 40, kWidth/2, kWidth/3);
+    leftbutton.tag = 0;
+    leftbutton.backgroundColor = [UIColor cyanColor];
+    [self.HeadView addSubview:leftbutton];
+    
+
+    UIButton *rightbutton = [UIButton buttonWithType:UIButtonTypeSystem];
+    rightbutton.frame = CGRectMake(kWidth/2, kHeight/3+ 40, kWidth/2, kWidth/3);
+    rightbutton.tag = 1;
+    rightbutton.backgroundColor = [UIColor grayColor];
+    [self.HeadView addSubview:rightbutton];
+    
+    for (int i = 0 ; i < 4; i++) {
+        UIButton *fourButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        fourButton.frame = CGRectMake(kWidth/4*i+5,kHeight/3+kWidth/3 + 45, kWidth/4-10, kWidth/4-10);
+        fourButton.backgroundColor = [UIColor cyanColor];
+        [self.HeadView addSubview:fourButton];
+    }
+    
+    
+    // 在你周围
+    UIImageView *titleView = [[UIImageView alloc] initWithFrame:CGRectMake(kWidth/4-5, kHeight/3+kWidth/3 + kWidth /4 + 54, kWidth /2 + 10, 2)];
+//    titleView.backgroundColor = [UIColor redColor];
+    titleView.image = [UIImage imageNamed:@"icon_tblack_a"];
+    [self.HeadView addSubview:titleView
+     ];
+    UILabel *titleL = [[UILabel alloc] initWithFrame:CGRectMake(kWidth/5*2,kHeight/3+kWidth/3 + kWidth /4 + 40, kWidth/5,kWidth/13)];
+    titleL.text = @"在你周围";
+    titleL.textAlignment = NSTextAlignmentCenter;
+    titleL.backgroundColor = [UIColor whiteColor];
+    titleL.font = [UIFont systemFontOfSize:15.0];
+    [self.HeadView addSubview:titleL];
+    
+    UIButton *youButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    youButton.backgroundColor = [UIColor yellowColor];
+    youButton.frame = CGRectMake(5, kHeight/3+kWidth/3 + kWidth /4 + 40 + kWidth/13, kWidth / 2 + 30, kWidth/2);
+    [self.HeadView addSubview:youButton];
+    
+    UIButton *storeButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    storeButton.backgroundColor = [UIColor cyanColor];
+    storeButton.frame = CGRectMake(kWidth /2+40, kHeight/3+kWidth/3 + kWidth /4 + 40 + kWidth/13, kWidth / 2 - 50, kWidth /4-3);
+    [self.HeadView addSubview:storeButton];
+    
+    
+    UIButton *youhuiButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    youhuiButton.backgroundColor = [UIColor yellowColor];
+    youhuiButton.frame = CGRectMake(kWidth /2+40, kHeight/3+kWidth/3 + kWidth /4*2 + 42 + kWidth/13, kWidth / 2 - 50, kWidth /4-3);
+    [self.HeadView addSubview:youhuiButton];
+    
+    //每日精选
+    UIImageView *goodView = [[UIImageView alloc] initWithFrame:CGRectMake(kWidth/4-5, kHeight/3+kWidth/3 + kWidth /4*2 + 53 + kWidth/13 + kWidth /4, kWidth /2 + 10, 2)];
+    //    titleView.backgroundColor = [UIColor redColor];
+    goodView.image = [UIImage imageNamed:@"icon_tblack_a"];
+    [self.HeadView addSubview:goodView
+     ];
+    UILabel *titleLgood = [[UILabel alloc] initWithFrame:CGRectMake(kWidth/5*2,kHeight/3+kWidth/3 + kWidth /4*2 + 45 + kWidth/13 + kWidth /4, kWidth/5,kWidth/13)];
+    titleLgood.text = @"每日精选";
+    titleLgood.textAlignment = NSTextAlignmentCenter;
+    titleLgood.backgroundColor = [UIColor whiteColor];
+    titleLgood.font = [UIFont systemFontOfSize:15.0];
+    [self.HeadView addSubview:titleLgood];
+    
 }
 //圆点随着滑动变化
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView1{
@@ -138,7 +208,7 @@
 
 - (UIView *)HeadView{
     if (_HeadView == nil) {
-        _HeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kWidth, kHeight / 2)];
+        _HeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kWidth, kHeight/3+kWidth/3 + kWidth /4*2 + 55 + kWidth/13 + kWidth /4)];
     }
     return _HeadView;
 }
