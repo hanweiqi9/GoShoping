@@ -11,7 +11,7 @@
 #import "PullingRefreshTableView.h"
 #import "ShopModel.h"
 #import "ShopTableViewCell.h"
-
+#import "ShopDetailViewController.h"
 
 @interface NearbyViewController ()<PullingRefreshTableViewDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -81,6 +81,13 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ShopDetailViewController *shopDetailVC = [[ShopDetailViewController alloc] init];
+    ShopModel *model = self.dataArray[indexPath.row];
+    shopDetailVC.detailId = model.mallId;
+    [self.navigationController pushViewController:shopDetailVC animated:YES];
 }
 
 //下拉刷新
