@@ -34,6 +34,7 @@
 		7A5BB1781C993A30002F8EBF /* Hot1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BB1771C993A30002F8EBF /* Hot1.plist */; };
 		7A895F5A1C99790900668E97 /* ShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A895F591C99790900668E97 /* ShopDetailViewController.m */; };
 		7A895F5C1C997A2300668E97 /* ShopDetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A895F5B1C997A2300668E97 /* ShopDetail.plist */; };
+		7A895F5F1C998B7200668E97 /* DetailHeaserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A895F5E1C998B7200668E97 /* DetailHeaserView.m */; };
 		7AB02ED31C9945530066D311 /* ShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB02ED21C9945530066D311 /* ShopModel.m */; };
 		7AB02ED71C9945680066D311 /* ShopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB02ED51C9945680066D311 /* ShopTableViewCell.m */; };
 		7AB02ED81C9945680066D311 /* ShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB02ED61C9945680066D311 /* ShopTableViewCell.xib */; };
@@ -89,6 +90,8 @@
 		7A895F581C99790900668E97 /* ShopDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopDetailViewController.h; sourceTree = "<group>"; };
 		7A895F591C99790900668E97 /* ShopDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopDetailViewController.m; sourceTree = "<group>"; };
 		7A895F5B1C997A2300668E97 /* ShopDetail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ShopDetail.plist; sourceTree = "<group>"; };
+		7A895F5D1C998B7200668E97 /* DetailHeaserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailHeaserView.h; sourceTree = "<group>"; };
+		7A895F5E1C998B7200668E97 /* DetailHeaserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailHeaserView.m; sourceTree = "<group>"; };
 		7AB02ED11C9945530066D311 /* ShopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopModel.h; sourceTree = "<group>"; };
 		7AB02ED21C9945530066D311 /* ShopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopModel.m; sourceTree = "<group>"; };
 		7AB02ED41C9945680066D311 /* ShopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTableViewCell.h; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 				7AB02ED51C9945680066D311 /* ShopTableViewCell.m */,
 				7AB02ED61C9945680066D311 /* ShopTableViewCell.xib */,
 				7A5BB1571C992E41002F8EBF /* Nearby.storyboard */,
+				7A895F5D1C998B7200668E97 /* DetailHeaserView.h */,
+				7A895F5E1C998B7200668E97 /* DetailHeaserView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -536,6 +541,7 @@
 				7A895F5A1C99790900668E97 /* ShopDetailViewController.m in Sources */,
 				7A5BB15C1C992E41002F8EBF /* HotTableViewCell.m in Sources */,
 				7A5BB1731C992F3A002F8EBF /* VOSegment.m in Sources */,
+				7A895F5F1C998B7200668E97 /* DetailHeaserView.m in Sources */,
 				7A5BB1741C992F3A002F8EBF /* VOSegmentedControl.m in Sources */,
 				7AB02ED71C9945680066D311 /* ShopTableViewCell.m in Sources */,
 				7A5BB1711C992F3A002F8EBF /* VOContentLayer.m in Sources */,
