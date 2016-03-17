@@ -12,10 +12,11 @@
 /*   首页数据接口  */
 //1.轮播图
 #define kTurnPicture @"http://api.gjla.com/app_admin_v400/api/onlineActivity/list?cityId=bd21203d001c11e4b2bf00163e000dce"
-
+#define kTurnData @"http://api.gjla.com/app_admin_v400/api/onlineActivity/list?cityId=391db7b8fdd211e3b2bf00163e000dce"
 
 //2.每日精选
 #define kEverdGood @"http://api.gjla.com/app_admin_v400/api/home/dailyHandpick?pageSize=10&cityId=391db7b8fdd211e3b2bf00163e000dce&pageNum=1"
+
 //3.在你周围
 #define kYourAround @"http://api.gjla.com/app_admin_v400/api/home/LBSMall?longitude=112.426965&districtId=&latitude=34.618707&cityId=391db7b8fdd211e3b2bf00163e000dce&userId=fe8d0970f7d4469bb6a8d5fbb1a2bb6f"
 

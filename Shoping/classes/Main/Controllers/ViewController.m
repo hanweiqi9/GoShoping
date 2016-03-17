@@ -9,20 +9,27 @@
 #import "ViewController.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "FFNavbarMenu.h"
 
-
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,FFNavbarMenuDelegate>
 
 @property (nonatomic, strong) UITableView *tableview;
 @property (nonatomic, strong) UIView *HeadView;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIPageControl *pageC;
+@property (nonatomic, strong) UIView *blackView;
 
-
+@property(nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) NSString *cityName;
 @property (nonatomic, strong) NSMutableArray *turnArray;
 @property (nonatomic, strong) NSMutableArray *cellArray;
 @property (nonatomic, strong) NSMutableArray *toolArray;
 @property (nonatomic, strong) NSDictionary *youDic;
+@property (nonatomic, strong) NSMutableArray *cityArray;
+@property (nonatomic, strong) NSString *cityId;
+
+@property (nonatomic, strong) FFNavbarMenu *menu;
+@property (nonatomic, assign) NSInteger numberMenu;
 @end
 
 @implementation ViewController
@@ -31,9 +38,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.view.backgroundColor =[UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:0.5];
-    
+    self.view.backgroundColor =[UIColor colorWithRed:231.0/255.0 green:231.0/255.0 blue:231.0/255.0 alpha:1.0];
     [self.view addSubview:self.tableview];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"上海" style:UIBarButtonItemStylePlain target:self action:@selector(SelectCityName:)];
+    
     
     //设置区头
 //    [self headSettingView];
@@ -43,10 +51,9 @@
     [self getMainData];
     //cell
     [self getCellData];
-    
     [self toolViewData];
-    
     [self youData];
+    [self startTimer];
 }
 
 
@@ -54,7 +61,7 @@
 - (void)getMainData{
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     manger.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    [manger GET:kTurnPicture parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manger GET:kTurnData parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
 //        NSLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *dic = responseObject;
@@ -88,7 +95,7 @@
 - (void)toolViewData{
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     manger.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    [manger GET:@"http://api.gjla.com/app_admin_v400/api/coupon/recommend?appVersion=4.2.0&cityId=bd21203d001c11e4b2bf00163e000dce" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manger GET:@"http://api.gjla.com/app_admin_v400/api/coupon/recommend?appVersion=4.2.0&cityId=391db7b8fdd211e3b2bf00163e000dce" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
 //        NSLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *dic = responseObject;
@@ -116,6 +123,21 @@
         NSLog(@"%@",error);
     }];
 
+}
+
+- (void)getCityData{
+    AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
+    manger.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    [manger GET:@"http://api.gjla.com/app_admin_v400/api/city/cityList" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        //        NSLog(@"%@",downloadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic = responseObject;
+        self.cityArray = dic[@"datas"];
+        [self headSettingView];
+        [self.tableview reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 #pragma mark ---------- 设置区头
@@ -160,7 +182,7 @@
         }
     }
     UIButton *guButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    guButton.frame = CGRectMake(kWidth/4*3+5,kHeight/3+kWidth/3 + 47, kWidth/4-10, kWidth/4-15);
+    guButton.frame = CGRectMake(kWidth/4*3+5,kHeight/3+kWidth/3 + 51, kWidth/4-10, kWidth/4-15);
     guButton.tag = 6;
     [guButton setBackgroundImage:[UIImage imageNamed:@"home_more.jpg"] forState:UIControlStateNormal];
     [self.HeadView addSubview:guButton];
@@ -183,12 +205,13 @@
     youButton.backgroundColor = [UIColor yellowColor];
     youButton.frame = CGRectMake(5, kHeight/3+kWidth/3 + kWidth /4 + 40 + kWidth/13, kWidth / 2 + 30, kWidth/2);
     youButton.tag = 7;
-//    NSString *string =[NSString stringWithFormat:@"http://api.gjla.com/app_admin_v400/%@",self.youArray[0][@"mainPicUrl"]];
+    [youButton addTarget:self action:@selector(MainButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    NSString *string =[NSString stringWithFormat:@"http://api.gjla.com/app_admin_v400/%@",self.youDic[@"mainPicUrl"]];
     UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, youButton.frame.size.width, youButton.frame.size.height)];
-//    [imageview sd_setImageWithURL:[NSURL URLWithString:string] placeholderImage:nil];
+    [imageview sd_setImageWithURL:[NSURL URLWithString:string] placeholderImage:nil];
     [youButton addSubview:imageview];
     [self.HeadView addSubview:youButton];
-    
     for (int i = 0; i < 2; i++) {
         UIButton *Button = [UIButton buttonWithType:UIButtonTypeSystem];
         Button.backgroundColor = [UIColor orangeColor];
@@ -238,10 +261,43 @@
     self.pageC.currentPage = num;
 }
 
-//- (void)settingImage:(UIButton *)tagButton{
-//
-//}
+- (void)startTimer{
+    
+    //如果定时器存在的话， 不在执行
+    if (_timer != nil) {
+        return;
+    }
+    self.timer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(rollScreen) userInfo:nil repeats:YES];
+    
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    
+}
+//每两秒执行一次图片自动轮播
+- (void)rollScreen{
+    if (self.turnArray.count > 0) {
+        //当前页 +1
+        //self.idArray.count的元素可能为0，当0时对取余的时候，没有意义
+        NSInteger rollPage = (self.pageC.currentPage + 1) % self.turnArray.count;
+        self.pageC.currentPage = rollPage;
+        
+        CGFloat offset = rollPage * kWidth;
+        [self.scrollView setContentOffset:CGPointMake(offset, 0) animated:YES];
+    }
+    
+}
 
+//当手动滑动scrollview的时候，定时器仍然在计算时间，可能我们刚滑动到下一页，定时器时间刚好有触发，导致当前页面停留不足两秒；
+//解决方案：在scrollview开始移动的时候结束定时器；
+//移动完毕开启定时器；
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self rollScreen];
+    //停止定时器后，将定时器置为nil，再次启动时，定时器才能保证正常执行。
+    //    self.timer = nil;
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [self startTimer];
+}
 
 #pragma mark ---------- 代理
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -335,6 +391,44 @@
     }
     return _youDic;
 }
+
+- (NSMutableArray *)cityArray{
+    if (_cityArray == nil) {
+        self.cityArray = [NSMutableArray new];
+    }
+    return _cityArray;
+}
+
+//菜单设置
+- (FFNavbarMenu *)menu{
+    if (_menu == nil) {
+        [self getCityData];
+        NSMutableArray *itemArray = [NSMutableArray new];
+        self.numberMenu = self.cityArray.count;
+        for (int i = 0; i < self.cityArray.count; i++) {
+            FFNavbarMenuItem *item = [[FFNavbarMenuItem alloc] initWithTitle:self.cityArray[i][@"CityName"] icon:nil];
+            [itemArray addObject:item];
+        }
+        self.menu = [[FFNavbarMenu alloc] initWithItems:itemArray width:kWidth maximumNumberInRow:self.numberMenu];
+        self.menu.delegate = self;
+        self.menu.backgroundColor = [UIColor whiteColor];
+        
+    }
+    return _menu;
+}
+
+- (void)SelectCityName:(id)sender{
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    if (self.menu.isOpen) {
+        [self.menu dismissWithAnimation:YES];
+    } else {
+        [self.menu showInNavigationController:self.navigationController];
+    }
+    
+}
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

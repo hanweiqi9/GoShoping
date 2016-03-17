@@ -45,6 +45,8 @@
 		7AB02EDF1C9945BC0066D311 /* blueArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB02EDB1C9945BC0066D311 /* blueArrowDown.png */; };
 		7AB02EE01C9945BC0066D311 /* PullingRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB02EDD1C9945BC0066D311 /* PullingRefreshTableView.m */; };
 		7AE773DD1C9A43850065D7B8 /* toolview.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AE773DC1C9A43850065D7B8 /* toolview.plist */; };
+		7AE774371C9AE3B80065D7B8 /* FFNavbarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE774341C9AE3B80065D7B8 /* FFNavbarMenu.m */; };
+		7AE774381C9AE3B80065D7B8 /* UIView+FFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE774361C9AE3B80065D7B8 /* UIView+FFExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +112,10 @@
 		7AB02EDC1C9945BC0066D311 /* PullingRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullingRefreshTableView.h; sourceTree = "<group>"; };
 		7AB02EDD1C9945BC0066D311 /* PullingRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullingRefreshTableView.m; sourceTree = "<group>"; };
 		7AE773DC1C9A43850065D7B8 /* toolview.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = toolview.plist; sourceTree = "<group>"; };
+		7AE774331C9AE3B80065D7B8 /* FFNavbarMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFNavbarMenu.h; sourceTree = "<group>"; };
+		7AE774341C9AE3B80065D7B8 /* FFNavbarMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFNavbarMenu.m; sourceTree = "<group>"; };
+		7AE774351C9AE3B80065D7B8 /* UIView+FFExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FFExtension.h"; sourceTree = "<group>"; };
+		7AE774361C9AE3B80065D7B8 /* UIView+FFExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FFExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +373,10 @@
 			children = (
 				7A5BB1661C992F3A002F8EBF /* HDefine.h */,
 				7A5BB1671C992F3A002F8EBF /* Prefix.pch */,
+				7AE774331C9AE3B80065D7B8 /* FFNavbarMenu.h */,
+				7AE774341C9AE3B80065D7B8 /* FFNavbarMenu.m */,
+				7AE774351C9AE3B80065D7B8 /* UIView+FFExtension.h */,
+				7AE774361C9AE3B80065D7B8 /* UIView+FFExtension.m */,
 				7AB02ED91C9945BC0066D311 /* PullingRefreshTableView */,
 				7A5BB1681C992F3A002F8EBF /* VOSegmentedControl */,
 			);
@@ -565,11 +575,13 @@
 				7A5BB1721C992F3A002F8EBF /* VOIndicatorAnimation.m in Sources */,
 				7AB02ED31C9945530066D311 /* ShopModel.m in Sources */,
 				7A5BB1841C9988CD002F8EBF /* MatchTableViewCell.m in Sources */,
+				7AE774371C9AE3B80065D7B8 /* FFNavbarMenu.m in Sources */,
 				7A5BB11D1C992864002F8EBF /* AppDelegate.m in Sources */,
 				7A5BB1581C992E41002F8EBF /* DiscoverViewController.m in Sources */,
 				7A5BB11A1C992864002F8EBF /* main.m in Sources */,
 				7A5BB1631C992E41002F8EBF /* NearbyViewController.m in Sources */,
 				7A5BB15E1C992E41002F8EBF /* CenterViewController.m in Sources */,
+				7AE774381C9AE3B80065D7B8 /* UIView+FFExtension.m in Sources */,
 				7A5BB1881C998EE3002F8EBF /* ActivityViewController.m in Sources */,
 				7A5BB1611C992E41002F8EBF /* MineViewController.m in Sources */,
 			);
