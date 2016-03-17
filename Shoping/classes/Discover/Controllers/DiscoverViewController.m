@@ -19,6 +19,7 @@
 #import "MatchTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "PullingRefreshTableView.h"
+#import "ActivityViewController.h"
 
 @interface DiscoverViewController ()<UITableViewDataSource,UITableViewDelegate,PullingRefreshTableViewDelegate>
 {
@@ -51,6 +52,7 @@
     [self.view addSubview:self.tableView];
     [self.firstView addSubview:self.twoView];
     [self.tableView launchRefreshing];
+    [self.twoView launchRefreshing];
     [self.tableView registerNib:[UINib nibWithNibName:@"HotTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     [self.twoView registerNib:[UINib nibWithNibName:@"MatchTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
 
@@ -97,7 +99,8 @@
             [self.matchArray addObject:dict[@"mainPicUrl"]];
             [self.titleArray addObject:dict[@"title"]];
         }
-        
+        [self.twoView reloadData];
+        [self.twoView tableViewDidFinishedLoading];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -165,7 +168,6 @@
 -(void)selectChange{
     if (self.segmentedController.selectedSegmentIndex == 0) {
         [self.firstView removeFromSuperview];
-       
     }else if (self.segmentedController.selectedSegmentIndex == 1){
         self.firstView = [[UIView alloc] initWithFrame:self.view.frame];
         [self.firstView addSubview:self.twoView];
@@ -198,10 +200,21 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (self.segmentedController.selectedSegmentIndex == 0) {
+         NSLog(@"%ld",self.allArray.count);
+        return self.allArray.count;
+       
+    }else if (self.segmentedController.selectedSegmentIndex == 1){
+        NSLog(@"%ld",self.matchArray.count);
+        return self.matchArray.count;
+    }
     return self.allArray.count;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ActivityViewController *avtivity = [[ActivityViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:avtivity];
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
     
 }
 
@@ -211,13 +224,22 @@
 -(void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
     self.refreshing = YES;
     _pageNum = 1;
-    [self performSelector:@selector(requestLoad) withObject:nil afterDelay:1.0];
+    if (self.segmentedController.selectedSegmentIndex == 0) {
+        [self performSelector:@selector(requestLoad) withObject:nil afterDelay:1.0];
+    }else if (self.segmentedController.selectedSegmentIndex == 1){
+        [self performSelector:@selector(matchRequest) withObject:nil afterDelay:1.0];
+    }
+    
 }
 //上拉
 -(void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
     self.refreshing = NO;
     _pageNum += 1;
-    [self performSelector:@selector(requestLoad) withObject:nil afterDelay:1.0];
+    if (self.segmentedController.selectedSegmentIndex == 0) {
+        [self performSelector:@selector(requestLoad) withObject:nil afterDelay:1.0];
+    }else if (self.segmentedController.selectedSegmentIndex == 1){
+        [self performSelector:@selector(matchRequest) withObject:nil afterDelay:1.0];
+    }
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{

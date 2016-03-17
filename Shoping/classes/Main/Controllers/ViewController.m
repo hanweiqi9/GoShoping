@@ -189,36 +189,29 @@
     [youButton addSubview:imageview];
     [self.HeadView addSubview:youButton];
     
-   
-//    
-//    
-//    UIButton *youhuiButton = [UIButton buttonWithType:UIButtonTypeSystem];
-//    youhuiButton.backgroundColor = [UIColor purpleColor];
-//    youhuiButton.frame = CGRectMake(kWidth /2+40, kHeight/3+kWidth/3 + kWidth /4*2 + 42 + kWidth/13, kWidth / 2 - 50, kWidth /4-3);
-//    [youhuiButton setBackgroundImage:[UIImage imageNamed:] forState:UIControlStateNormal];
-//    youhuiButton.tag = 9;
-//    [self.HeadView addSubview:youhuiButton];
-    
-    
     for (int i = 0; i < 2; i++) {
-        UIButton *storeButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        storeButton.backgroundColor = [UIColor orangeColor];
-        storeButton.frame = CGRectMake(kWidth /2+40, kHeight/3+kWidth/3 + kWidth /4*(i+1) + 40 + kWidth/13, kWidth / 2 - 50, kWidth /4-3);
-        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(storeButton.frame.size.width/3-10, storeButton.frame.size.height- 30,storeButton.frame.size.width/3 +20, 20)];
-        title.backgroundColor = [UIColor whiteColor];
-        [storeButton addSubview:title];
-        UIImageView *store = [[UIImageView alloc] initWithFrame:CGRectMake( storeButton.frame.size.width/3, 10, storeButton.frame.size.width/3, storeButton.frame.size.height / 2 )];
+        UIButton *Button = [UIButton buttonWithType:UIButtonTypeSystem];
+        Button.backgroundColor = [UIColor orangeColor];
+        Button.frame = CGRectMake(kWidth /2+40, kHeight/3+kWidth/3 + kWidth /4*(i+1) + 40 + kWidth/13, kWidth / 2 - 50, kWidth /4-3);
+        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(Button.frame.size.width/4, Button.frame.size.height- 25,Button.frame.size.width/2, 20)];
+           title.textColor = [UIColor whiteColor];
+            title.textAlignment = NSTextAlignmentCenter;
+        UIImageView *store = [[UIImageView alloc] initWithFrame:CGRectMake( Button.frame.size.width/3, 10, Button.frame.size.width/3, Button.frame.size.height / 2 )];
         if (i == 0) {
+            title.text = @"附近商城";
             store.backgroundColor = [UIColor orangeColor];
              store.image =[UIImage imageNamed:@"nearby_mall_icon"];
         }
         if (i == 1) {
+            title.text = @"附近优惠";
             store.image =[UIImage imageNamed:@"nearby_coupon_icon"];
-            storeButton.backgroundColor = [UIColor colorWithRed:168.0/255.0  green:138/255.0 blue:250.0/255.0 alpha:1.0];
+            Button.backgroundColor = [UIColor colorWithRed:168.0/255.0  green:138/255.0 blue:250.0/255.0 alpha:1.0];
         }
-        [storeButton addSubview:store];
-        storeButton.tag = i + 8;
-        [self.HeadView addSubview:storeButton];
+        [Button addSubview:title];
+  
+        [Button addSubview:store];
+        Button.tag = i + 8;
+        [self.HeadView addSubview:Button];
     }
     
     
