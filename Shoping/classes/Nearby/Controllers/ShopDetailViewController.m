@@ -9,16 +9,18 @@
 #import "ShopDetailViewController.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import "PullingRefreshTableView.h"
-#import "DetailHeaserView.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ShopDetailViewController ()<PullingRefreshTableViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSString *categoryBtnId;
+
+@property (nonatomic, strong) UIView *detailView;
 @property (nonatomic, assign) BOOL refreshing;  //是否刷新
 @property (nonatomic, strong) PullingRefreshTableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
-@property (nonatomic, strong) DetailHeaserView *detailView;
+
 @property (nonatomic, strong) NSDictionary *headerDic;
 
 
@@ -35,8 +37,7 @@
     //网络请求
     [self requestData];
 
-    //自定义tableView的头部分区
-    [self configTableViewHeader];
+   
 }
 
 
@@ -46,7 +47,9 @@
     [sessionManger GET:[NSString stringWithFormat:@"%@&mallId=%@", kShopDetail, _detailId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.headerDic = responseObject;
+        NSDictionary *datasDic = responseObject;
+        self.headerDic = datasDic[@"datas"];
+        [self configTableViewHeader];
         
         
         
@@ -77,34 +80,101 @@
 //点击方法
 
 
-
 //头部视图
 - (void)configTableViewHeader {
-    self.detailView = [[DetailHeaserView alloc] initWithFrame:CGRectMake(0, 10, kWidth, kHeight - 300)];
+    //图片需要拼接的URl
     NSString *str = @"http://api.gjla.com/app_admin_v400/";
     NSArray *picUrlArray = self.headerDic[@"mallPirUrl"];
     NSString *mallUrl = picUrlArray[0];
     //头部图片
-    [self.detailView.headerView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",str, mallUrl]] placeholderImage:nil];
+    UIImageView *headerView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 2, kWidth -10, kWidth * 0.335)];
+    [headerView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",str, mallUrl]] placeholderImage:nil];
     //标题
-    self.detailView.titleLabel.text = [NSString stringWithFormat:@"%@",self.headerDic[@"mallName"]];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, kWidth * 0.335 + 5, kWidth - 10, 30)];
+    titleLabel.text = [NSString stringWithFormat:@"%@",self.headerDic[@"mallName"]];
+    titleLabel.textColor = [UIColor grayColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
     //营业时间
     NSString *closeTime = self.headerDic[@"closeTime"];
     NSString *openTime = self.headerDic[@"openTime"];
-    self.detailView.timeLabel.text = [NSString stringWithFormat:@"%@ ~ %@",openTime, closeTime];
+    UILabel *currentLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, kWidth * 0.335 + 40, kWidth / 4, 30)];
+    currentLabel.text = @"营业时间:";
+    currentLabel.textAlignment = NSTextAlignmentCenter;
+    currentLabel.textColor = kColor;
+    
+    UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(kWidth / 4 + 85, kWidth * 0.335 + 40, kWidth / 4 + 20, 30)];
+    timeLabel.text = [NSString stringWithFormat:@"%@ ~ %@",openTime, closeTime];
+    timeLabel.textColor = kColor;
     //距离
-    [self.detailView.distanceBtn setTitle:[NSString stringWithFormat:@"%@",self.headerDic[@"distance"]] forState:UIControlStateNormal];
+    UIButton *distanceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    distanceBtn.frame = CGRectMake(100, kWidth * 0.335 + 75, kWidth - 200, 30);
+    [distanceBtn setTitle:[NSString stringWithFormat:@"%@ km",self.headerDic[@"distance"]] forState:UIControlStateNormal];
+    //设置图片和内容的间距
+    [distanceBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -20, 0, 0)];
+    [distanceBtn setImage:[UIImage imageNamed:@"address_icon"] forState:UIControlStateNormal];
+    [distanceBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    
     //地址
-    [self.detailView.addressBtn setTitle:[NSString stringWithFormat:@"%@",self.headerDic[@"address"]] forState:UIControlStateNormal];
-    //八个按钮点击事件
+    UIButton *addressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    addressBtn.frame = CGRectMake(20, kWidth * 0.335 + 110, kWidth - 40, 30);
+    [addressBtn setTitle:[NSString stringWithFormat:@"%@",self.headerDic[@"address"]] forState:UIControlStateNormal];
+    //设置图片和内容的间距
+    [addressBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -20, 0, 0)];
+    [addressBtn setImage:[UIImage imageNamed:@"address_ico"] forState:UIControlStateNormal];
+    [addressBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    //入住商户
+    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(5, kWidth * 0.335 + 160, kWidth / 3, 2)];
+    label1.alpha = 0.5;
+    label1.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"icon_tblack_a"]];
+    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(kWidth / 3 + 32 , kWidth * 0.335 + 145, kWidth / 3 - 10, 30)];
+    label2.text = @"入住商户";
+    UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(kWidth / 1.5 , kWidth * 0.335 + 160, kWidth / 3 - 5, 2)];
+    label3.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"icon_tblack_a"]];
+    label3.alpha = 0.5;
+    for (int i = 0; i < 8; i++) {
+        UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+        if (i < 4) {
+            button1.frame = CGRectMake(kWidth / 4 * i + 5, kWidth * 0.335 + 180, kWidth / 4 - 10, kWidth / 4 - 10);
+            button1.tag = i;
+            NSString *imageStr = [NSString stringWithFormat:@"classify%02d",i + 1];
+            [button1 setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
+            [self.detailView addSubview:button1];
+        } else {
+            button1.frame = CGRectMake(kWidth / 4 * (i - 4) + 5, kWidth * 0.335 + 180 + kWidth / 4 - 5, kWidth / 4 - 10, kWidth / 4 - 10);
+            button1.tag = i;
+            NSString *imageStr = [NSString stringWithFormat:@"classify%02d",i + 1];
+            [button1 setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
+            
+            [self.detailView addSubview:button1];
+        }
+        [button1 addTarget:self action:@selector(classfiyBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
     
     
-
     
     
-    self.detailView.backgroundColor = [UIColor yellowColor];
+    [self.detailView addSubview:label1];
+    [self.detailView addSubview:label2];
+    [self.detailView addSubview:label3];
+    [self.detailView addSubview:addressBtn];
+    [self.detailView addSubview:distanceBtn];
+    [self.detailView addSubview:timeLabel];
+    [self.detailView addSubview:currentLabel];
+    [self.detailView addSubview:titleLabel];
+    [self.detailView addSubview:headerView];
     self.tableView.tableHeaderView = self.detailView;
     
+}
+
+
+//八个按钮的点击方法
+- (void)classfiyBtnAction:(UIButton *)btn {
+    //取出按钮的id
+    NSMutableArray *categoryArray = self.headerDic[@"category"];
+    if (btn.tag) {
+        self.categoryBtnId = categoryArray[btn.tag][@"categoryId"];
+    }
 }
 
 
@@ -160,6 +230,15 @@
     }
     return _headerDic;
 }
+
+- (UIView *)detailView{
+    if (_detailView == nil) {
+        self.detailView = [[UIView alloc] init];
+        self.detailView.frame=CGRectMake(0, 10, kWidth, kWidth * 0.335 + 180 + kWidth / 4 + kWidth / 4 - 15);
+    }
+    return _detailView;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
