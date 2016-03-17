@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		044E7C2F8D550F2BFED1C135 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A74D26A9CC2CDDAD46EFF8 /* libPods.a */; };
+		7A1EB8A31C9A524A0069BF70 /* Activity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A1EB8A21C9A524A0069BF70 /* Activity.plist */; };
 		7A5BB11A1C992864002F8EBF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BB1191C992864002F8EBF /* main.m */; };
 		7A5BB11D1C992864002F8EBF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BB11C1C992864002F8EBF /* AppDelegate.m */; };
 		7A5BB1231C992864002F8EBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BB1211C992864002F8EBF /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		1FE77ED276D7A3F50E42E623 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		20A74D26A9CC2CDDAD46EFF8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6900A39898EE3A27B9F5A4AD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7A1EB8A21C9A524A0069BF70 /* Activity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Activity.plist; sourceTree = "<group>"; };
 		7A5BB1151C992864002F8EBF /* Shoping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5BB1191C992864002F8EBF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7A5BB11B1C992864002F8EBF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				7A5BB13B1C992E41002F8EBF /* HotTableViewCell.m */,
 				7A5BB13C1C992E41002F8EBF /* HotTableViewCell.xib */,
 				7A5BB1771C993A30002F8EBF /* Hot1.plist */,
+				7A1EB8A21C9A524A0069BF70 /* Activity.plist */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				7A5BB1281C992864002F8EBF /* LaunchScreen.storyboard in Resources */,
 				7A895F5C1C997A2300668E97 /* ShopDetail.plist in Resources */,
 				7A5BB15A1C992E41002F8EBF /* Discover.storyboard in Resources */,
+				7A1EB8A31C9A524A0069BF70 /* Activity.plist in Resources */,
 				7A5BB1851C9988CD002F8EBF /* MatchTableViewCell.xib in Resources */,
 				7A5BB1781C993A30002F8EBF /* Hot1.plist in Resources */,
 				7A5BB1761C99308A002F8EBF /* Main.plist in Resources */,
