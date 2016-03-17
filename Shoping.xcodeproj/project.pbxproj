@@ -44,6 +44,7 @@
 		7AB02EDE1C9945BC0066D311 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB02EDA1C9945BC0066D311 /* blueArrow.png */; };
 		7AB02EDF1C9945BC0066D311 /* blueArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB02EDB1C9945BC0066D311 /* blueArrowDown.png */; };
 		7AB02EE01C9945BC0066D311 /* PullingRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB02EDD1C9945BC0066D311 /* PullingRefreshTableView.m */; };
+		7AE773DD1C9A43850065D7B8 /* toolview.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AE773DC1C9A43850065D7B8 /* toolview.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		7AB02EDB1C9945BC0066D311 /* blueArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrowDown.png; sourceTree = "<group>"; };
 		7AB02EDC1C9945BC0066D311 /* PullingRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullingRefreshTableView.h; sourceTree = "<group>"; };
 		7AB02EDD1C9945BC0066D311 /* PullingRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullingRefreshTableView.m; sourceTree = "<group>"; };
+		7AE773DC1C9A43850065D7B8 /* toolview.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = toolview.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				7A5BB1751C99308A002F8EBF /* Main.plist */,
+				7AE773DC1C9A43850065D7B8 /* toolview.plist */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				7A5BB15D1C992E41002F8EBF /* HotTableViewCell.xib in Resources */,
 				7A5BB1641C992E41002F8EBF /* Nearby.storyboard in Resources */,
 				7A5BB1281C992864002F8EBF /* LaunchScreen.storyboard in Resources */,
+				7AE773DD1C9A43850065D7B8 /* toolview.plist in Resources */,
 				7A895F5C1C997A2300668E97 /* ShopDetail.plist in Resources */,
 				7A5BB15A1C992E41002F8EBF /* Discover.storyboard in Resources */,
 				7A5BB1851C9988CD002F8EBF /* MatchTableViewCell.xib in Resources */,
